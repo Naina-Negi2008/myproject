@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naina Negi | BCA Student & Aspiring Tech Innovator</title>
+  <meta name="description" content="Portfolio of Naina Negi - 1st Year BCA student passionate about C, Python, and building innovative tech solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Glow & Particles Canvas -->
+  <div class="glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Custom Cursor Glow -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-bracket">&lt;</span>
+        <span class="brand-name">Naina<span class="brand-accent">.dev</span></span>
+        <span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#future" class="nav-link">Future Goals</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Sound Effect Toggle -->
+        <button class="icon-btn" id="soundToggle" title="Toggle Sound Effects" aria-label="Toggle Sound Effects">
+          <svg class="icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="icon sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <svg class="icon sun-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-sm">Let's Connect</a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge animate-fade">
+            <span class="badge-dot"></span>
+            <span>BCA 1st Year • Aspiring Tech Innovator</span>
+          </div>
+
+          <h1 class="hero-title animate-fade">
+            Hello, I'm <span class="gradient-text">Naina Negi</span>
+          </h1>
+
+          <div class="hero-subtitle-wrapper animate-fade">
+            <span class="static-prefix">I am passionate about </span>
+            <span class="typewriter" id="typewriterText"></span>
+            <span class="cursor-pipe">|</span>
+          </div>
+
+          <p class="hero-description animate-fade">
+            Building solid computational foundations with <strong class="highlight-c">C</strong> and <strong class="highlight-py">Python</strong>. 
+            I am a first-year Computer Applications student eager to turn logic into functional, creative, and innovative real-world software.
+          </p>
+
+          <div class="hero-cta-group animate-fade">
+            <a href="#skills" class="btn btn-primary">
+              <span>Explore My Skills</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#future" class="btn btn-secondary">
+              <span>View Innovative Goals</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Quick Stats Banner -->
+          <div class="hero-stats animate-fade">
+            <div class="stat-item">
+              <span class="stat-number">1st</span>
+              <span class="stat-label">Year BCA</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">2+</span>
+              <span class="stat-label">Core Languages</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Driven to Innovate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Visual: 3D Tilt Code Terminal Card -->
+        <div class="hero-visual animate-fade">
+          <div class="tilt-card-wrapper" id="heroTiltCard">
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <div class="window-controls">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <span>naina_profile.py</span>
+                </div>
+                <span class="file-badge">Python 3.12</span>
+              </div>
+              <div class="terminal-body">
+                <pre><code><span class="code-keyword">class</span> <span class="code-class">TechInnovator</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(<span class="code-param">self</span>):
+        <span class="code-param">self</span>.name = <span class="code-str">"Naina Negi"</span>
+        <span class="code-param">self</span>.degree = <span class="code-str">"BCA (1st Year)"</span>
+        <span class="code-param">self</span>.languages = [<span class="code-str">"C"</span>, <span class="code-str">"Python"</span>]
+        <span class="code-param">self</span>.drive = <span class="code-str">"Create Innovative Projects"</span>
+        <span class="code-param">self</span>.status = <span class="code-str">"Constantly Learning 🚀"</span>
+
+    <span class="code-keyword">def</span> <span class="code-func">build_future</span>(<span class="code-param">self</span>):
+        <span class="code-keyword">return</span> <span class="code-str">"Coding tomorrow's solutions, today!"</span>
+
+me = <span class="code-class">TechInnovator</span>()
+<span class="code-func">print</span>(me.build_future())</code></pre>
+              </div>
+              <div class="terminal-footer">
+                <div class="terminal-run-preview">
+                  <span class="prompt-symbol">&gt;&gt;&gt;</span>
+                  <span class="output-text">"Coding tomorrow's solutions, today!"</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badges around terminal -->
+            <div class="floating-badge badge-c">
+              <div class="floating-icon">C</div>
+              <span>#include &lt;stdio.h&gt;</span>
+            </div>
+            <div class="floating-badge badge-py">
+              <div class="floating-icon">🐍</div>
+              <span>import innovation</span>
+            </div>
+            <div class="floating-badge badge-logic">
+              <div class="floating-icon">💡</div>
+              <span>Algorithmic Logic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Get To Know Me</span>
+          <h2 class="section-title">Passionate, Driven &amp; <span class="gradient-text">Curious</span></h2>
+          <p class="section-subtitle">A glimpse into who I am and my approach to coding and technology.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card intro-card">
+            <div class="avatar-box">
+              <div class="avatar-glow"></div>
+              <div class="avatar-frame">
+                <!-- Creative Avatar Graphic -->
+                <div class="avatar-illustration">
+                  <div class="avatar-face">
+                    <span class="avatar-emoji">👩‍💻</span>
+                  </div>
+                  <div class="avatar-ring"></div>
+                </div>
+              </div>
+            </div>
+            <div class="intro-text">
+              <h3>Hi, I'm Naina!</h3>
+              <p>
+                I am currently in my <strong>1st Year of BCA (Bachelor of Computer Applications)</strong>. My journey into programming sparked from an innate curiosity to understand how software transforms simple lines of text into impactful applications.
+              </p>
+              <p>
+                Rather than rushing to surface-level shortcuts, I believe in mastering the building blocks. That's why I started with <strong>C</strong> to grasp memory, logic, and efficiency, coupled with <strong>Python</strong> for its versatility, automation capabilities, and rapid problem-solving power.
+              </p>
+              <div class="key-values">
+                <div class="value-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Fast &amp; Eager Learner</span>
+                </div>
+                <div class="value-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Strong Logical Foundations</span>
+                </div>
+                <div class="value-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Innovation-Driven Mindset</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personality & Fun Facts Cards -->
+          <div class="about-card highlight-box">
+            <div class="box-icon">🎯</div>
+            <h4>My Philosophy</h4>
+            <p>"Every complex algorithm is just a series of simple questions answered systematically. Build from fundamentals, then innovate without limits."</p>
+          </div>
+
+          <div class="about-card highlight-box">
+            <div class="box-icon">⚡</div>
+            <h4>Why Tech &amp; BCA?</h4>
+            <p>BCA gives me a robust academic springboard in computer systems, mathematics, and software design to fuel my dream of becoming a modern full-stack developer.</p>
+          </div>
+
+          <div class="about-card highlight-box">
+            <div class="box-icon">🚀</div>
+            <h4>What Drives Me?</h4>
+            <p>The thrill of taking an ambitious idea, drafting its architecture, and seeing it execute smoothly without errors. Innovation begins with curiosity!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Academic Journey</span>
+          <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+          <p class="section-subtitle">Gaining deep conceptual clarity and practical computer science foundations.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Item 1: BCA -->
+          <div class="timeline-item active">
+            <div class="timeline-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="timeline-card">
+              <div class="card-meta">
+                <span class="period-badge current">2026 - Present • Current Pursuit</span>
+                <span class="institution-type">Undergraduate Degree</span>
+              </div>
+              <h3 class="degree-title">Bachelor of Computer Applications (BCA)</h3>
+              <h4 class="institute-name">1st Year Student</h4>
+              <p class="education-desc">
+                Currently immersing myself in foundational computing principles, algorithmic thinking, and modern software paradigms. Actively engaging in programming practicals, computer organization, and discrete logic.
+              </p>
+              
+              <div class="coursework-section">
+                <h5>Key Coursework &amp; Focus Areas:</h5>
+                <div class="coursework-tags">
+                  <span class="tag">Programming in C</span>
+                  <span class="tag">Computer Fundamentals &amp; Architecture</span>
+                  <span class="tag">Mathematical Foundations</span>
+                  <span class="tag">Discrete Mathematics</span>
+                  <span class="tag">Digital Logic</span>
+                  <span class="tag">Data &amp; File Structures (Intro)</span>
+                </div>
+              </div>
+
+              <div class="education-stats">
+                <div class="ed-stat">
+                  <span class="ed-val">100%</span>
+                  <span class="ed-lbl">Lab Commitment</span>
+                </div>
+                <div class="ed-stat">
+                  <span class="ed-val">Hands-On</span>
+                  <span class="ed-lbl">Practical Coding</span>
+                </div>
+                <div class="ed-stat">
+                  <span class="ed-val">A+</span>
+                  <span class="ed-lbl">Problem-Solving Drive</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Schooling -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div class="timeline-card">
+              <div class="card-meta">
+                <span class="period-badge">Completed</span>
+                <span class="institution-type">Senior Secondary Education</span>
+              </div>
+              <h3 class="degree-title">Higher Secondary Schooling</h3>
+              <p class="education-desc">
+                Cultivated strong analytical reasoning, mathematical aptitude, and an early passion for technology, which naturally led me to choose Computer Applications for my higher studies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION WITH INTERACTIVE CODE PLAYGROUND -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Skills &amp; <span class="gradient-text">Toolbox</span></h2>
+          <p class="section-subtitle">Focused on solid core languages, logic building, and modern programming tools.</p>
+        </div>
+
+        <!-- Skill Cards Grid -->
+        <div class="skills-grid">
+          <!-- C Language Card -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap c-theme">
+              <span class="skill-symbol">C</span>
+            </div>
+            <div class="skill-content">
+              <div class="skill-head">
+                <h3>C Programming</h3>
+                <span class="skill-level">Core Strength</span>
+              </div>
+              <p>Mastering core computer science fundamentals: pointers, structured programming, memory allocation, and hardware-level intuition.</p>
+              <div class="skill-subtopics">
+                <span class="subtopic">Pointers &amp; References</span>
+                <span class="subtopic">Dynamic Memory (malloc/free)</span>
+                <span class="subtopic">Structures &amp; Unions</span>
+                <span class="subtopic">File I/O Handling</span>
+                <span class="subtopic">Modular Functions</span>
+              </div>
+              <div class="skill-meter">
+                <div class="meter-bar" style="--percent: 85%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Python Card -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap py-theme">
+              <span class="skill-symbol">Py</span>
+            </div>
+            <div class="skill-content">
+              <div class="skill-head">
+                <h3>Python Programming</h3>
+                <span class="skill-level">Core Strength</span>
+              </div>
+              <p>Harnessing Python for agile development, rapid prototyping, clean object-oriented code, and automated problem-solving scripts.</p>
+              <div class="skill-subtopics">
+                <span class="subtopic">OOP (Classes &amp; Objects)</span>
+                <span class="subtopic">List Comprehensions</span>
+                <span class="subtopic">Exception Handling</span>
+                <span class="subtopic">Data Analysis Basics</span>
+                <span class="subtopic">Scripting &amp; Automation</span>
+              </div>
+              <div class="skill-meter">
+                <div class="meter-bar" style="--percent: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logic & Algorithms -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap logic-theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"></path>
+                <path d="M9 21h6"></path>
+              </svg>
+            </div>
+            <div class="skill-content">
+              <div class="skill-head">
+                <h3>Problem Solving &amp; Logic</h3>
+                <span class="skill-level">Essential CS</span>
+              </div>
+              <p>Designing flowchart algorithms, optimizing step complexity, tackling arrays, string manipulations, and recursion.</p>
+              <div class="skill-subtopics">
+                <span class="subtopic">Sorting &amp; Searching</span>
+                <span class="subtopic">Recursion</span>
+                <span class="subtopic">Pattern Algorithms</span>
+                <span class="subtopic">Complexity Intuition</span>
+              </div>
+              <div class="skill-meter">
+                <div class="meter-bar" style="--percent: 82%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Development Foundations -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap web-theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div class="skill-content">
+              <div class="skill-head">
+                <h3>Web Basics &amp; Frontend</h3>
+                <span class="skill-level">Expanding Fast</span>
+              </div>
+              <p>Actively learning to craft responsive, modern user interfaces with semantic HTML5, modern CSS3 layout engines, and interactive JavaScript.</p>
+              <div class="skill-subtopics">
+                <span class="subtopic">Semantic HTML5</span>
+                <span class="subtopic">CSS Flexbox / Grid</span>
+                <span class="subtopic">Modern ES6+ JS</span>
+                <span class="subtopic">DOM Manipulation</span>
+              </div>
+              <div class="skill-meter">
+                <div class="meter-bar" style="--percent: 75%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE LIVE CODE PLAYGROUND -->
+        <div class="interactive-playground-wrapper">
+          <div class="playground-card">
+            <div class="playground-header">
+              <div class="pg-info">
+                <div class="live-indicator">
+                  <span class="pulse-dot"></span>
+                  <span>Interactive Code Sandbox</span>
+                </div>
+                <h3>Test Naina's Code Live</h3>
+              </div>
+              <div class="playground-tabs">
+                <button class="pg-tab active" data-lang="python">
+                  <span>🐍 Python</span>
+                </button>
+                <button class="pg-tab" data-lang="c">
+                  <span>⚙️ C Language</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="playground-body">
+              <div class="code-editor-area">
+                <div class="editor-gutter" id="editorGutter">
+                  1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12
+                </div>
+                <div class="editor-code" id="editorCode">
+                  <!-- Python snippet by default -->
+                </div>
+              </div>
+
+              <div class="playground-terminal">
+                <div class="term-bar">
+                  <span class="term-title">Console Output</span>
+                  <button class="btn btn-primary btn-run" id="runCodeBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Run Program</span>
+                  </button>
+                </div>
+                <div class="term-screen" id="termScreen">
+                  <div class="term-line system-msg">Console ready. Click "Run Program" to execute Naina's code...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="section achievements-section" id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Milestones &amp; Dedication</span>
+          <h2 class="section-title">My <span class="gradient-text">Achievements</span></h2>
+          <p class="section-subtitle">Every milestone achieved is stepping stone toward building innovative solutions.</p>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Achievement Card 1 -->
+          <div class="achievement-card">
+            <div class="achieve-badge-icon">
+              <span class="emoji">🏆</span>
+            </div>
+            <div class="achieve-content">
+              <span class="achieve-date">BCA Year 1 Milestone</span>
+              <h3>Top Academic Performance &amp; Lab Excellence</h3>
+              <p>Recognized for consistently delivering well-documented, clean, and bug-free programming solutions in university C &amp; computer application practicals.</p>
+              <div class="achieve-tags">
+                <span>Problem Solving</span>
+                <span>C Practical Labs</span>
+                <span>Consistency</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievement Card 2 -->
+          <div class="achievement-card">
+            <div class="achieve-badge-icon">
+              <span class="emoji">💻</span>
+            </div>
+            <div class="achieve-content">
+              <span class="achieve-date">Algorithmic Journey</span>
+              <h3>60+ Core Problems Solved</h3>
+              <p>Successfully coded and optimized over 60 algorithmic programs covering arrays, matrix computations, searching/sorting algorithms, and string operations in both C and Python.</p>
+              <div class="achieve-tags">
+                <span>Algorithms</span>
+                <span>Data Logic</span>
+                <span>Efficiency</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievement Card 3 -->
+          <div class="achievement-card">
+            <div class="achieve-badge-icon">
+              <span class="emoji">🛠️</span>
+            </div>
+            <div class="achieve-content">
+              <span class="achieve-date">Self-Driven Learning</span>
+              <h3>Built Mini-Utility CLI Applications</h3>
+              <p>Engineered interactive console programs in C and Python: a student grade calculator, banking simulation, and a text-based inventory system utilizing custom structs and file operations.</p>
+              <div class="achieve-tags">
+                <span>File Handling</span>
+                <span>CLI Design</span>
+                <span>Modular Code</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievement Card 4 -->
+          <div class="achievement-card">
+            <div class="achieve-badge-icon">
+              <span class="emoji">🌟</span>
+            </div>
+            <div class="achieve-content">
+              <span class="achieve-date">Continuous Growth</span>
+              <h3>Hackathon &amp; Tech Community Aspirant</h3>
+              <p>Actively participating in coding workshops, tech webinars, and preparing for student hackathons to collaborate and build high-impact community tools.</p>
+              <div class="achieve-tags">
+                <span>Teamwork</span>
+                <span>Innovation</span>
+                <span>Hackathons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fun Trophy Banner -->
+        <div class="milestone-counter-banner">
+          <div class="counter-box">
+            <span class="counter-num" data-target="60">0</span><span class="plus">+</span>
+            <span class="counter-lbl">C &amp; Python Codes Built</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-num" data-target="100">0</span><span class="plus">%</span>
+            <span class="counter-lbl">Dedication &amp; Focus</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-num" data-target="1">0</span><span class="plus">st</span>
+            <span class="counter-lbl">Year BCA &amp; Thriving</span>
+          </div>
+          <div class="counter-box">
+            <span class="counter-num" data-target="24">0</span><span class="plus">/7</span>
+            <span class="counter-lbl">Curiosity to Innovate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE GOALS SECTION -->
+    <section class="section future-section" id="future">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Vision &amp; Roadmaps</span>
+          <h2 class="section-title">My <span class="gradient-text">Future Goals</span></h2>
+          <p class="section-subtitle">"I don't just want to write code — I want to create innovative projects that make a difference."</p>
+        </div>
+
+        <!-- Roadmap Cards -->
+        <div class="goals-roadmap">
+          <!-- Step 1 -->
+          <div class="goal-step">
+            <div class="step-marker">
+              <span>01</span>
+            </div>
+            <div class="goal-card">
+              <div class="goal-icon-badge">🧠</div>
+              <span class="goal-phase">Phase 1 • Foundational Mastery</span>
+              <h3>Advanced Data Structures &amp; Algorithms</h3>
+              <p>Deep-diving into linked lists, binary trees, graphs, and dynamic programming in C and Python to achieve high algorithmic efficiency and competitive programming skills.</p>
+              <ul class="goal-checklist">
+                <li>Master pointers, tree traversals, and graph algorithms</li>
+                <li>Participate in coding competitions on LeetCode &amp; HackerRank</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="goal-step">
+            <div class="step-marker">
+              <span>02</span>
+            </div>
+            <div class="goal-card">
+              <div class="goal-icon-badge">🌐</div>
+              <span class="goal-phase">Phase 2 • Full Stack Engineering</span>
+              <h3>Full Stack Web Application Development</h3>
+              <p>Bridging backend logic with engaging user interfaces by mastering modern JavaScript frameworks (React / Vue) and Python backends (FastAPI / Django).</p>
+              <ul class="goal-checklist">
+                <li>Build RESTful APIs and real-time database applications</li>
+                <li>Design accessible, smooth UI/UX web experiences</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="goal-step">
+            <div class="step-marker">
+              <span>03</span>
+            </div>
+            <div class="goal-card">
+              <div class="goal-icon-badge">🤖</div>
+              <span class="goal-phase">Phase 3 • Intelligent Systems</span>
+              <h3>Applied AI &amp; Machine Learning Projects</h3>
+              <p>Harnessing Python's machine learning libraries (NumPy, Pandas, PyTorch) to develop smart utilities, predictive engines, and AI-assisted automation tools.</p>
+              <ul class="goal-checklist">
+                <li>Build smart campus assistance tools for college students</li>
+                <li>Integrate LLMs and smart agents into everyday workflows</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="goal-step">
+            <div class="step-marker">
+              <span>04</span>
+            </div>
+            <div class="goal-card highlight-goal">
+              <div class="goal-icon-badge">🚀</div>
+              <span class="goal-phase">Ultimate Vision • Impact &amp; Innovation</span>
+              <h3>Launch Open-Source Innovative Solutions</h3>
+              <p>Architecting and launching full-fledged open-source projects that solve real pain points for students, educators, and community organizations.</p>
+              <ul class="goal-checklist">
+                <li>Collaborate globally on GitHub open-source repositories</li>
+                <li>Lead hackathon teams to turn visionary concepts into products</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Innovative Project Ideas Naina Wants to Build -->
+        <div class="future-projects-pitch">
+          <div class="pitch-card">
+            <div class="pitch-header">
+              <span class="pitch-tag">Project Idea Incubator</span>
+              <h3>💡 Innovative Projects I'm Planning to Build</h3>
+            </div>
+            <div class="pitch-grid">
+              <div class="mini-idea-card">
+                <span class="idea-num">A</span>
+                <h4>Smart Student Study Sync</h4>
+                <p>A Python-powered automated scheduler and interactive study tracker tailored for BCA university curriculums.</p>
+              </div>
+              <div class="mini-idea-card">
+                <span class="idea-num">B</span>
+                <h4>Visual C-Pointer Animator</h4>
+                <p>An interactive educational web simulator that visualizes memory allocation and pointer references live in browser.</p>
+              </div>
+              <div class="mini-idea-card">
+                <span class="idea-num">C</span>
+                <h4>Campus Community Hub</h4>
+                <p>A collaborative portal for peer-to-peer code reviews, project teaming, and lecture note indexing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+          <p class="section-subtitle">Have an innovative project idea, mentorship opportunity, or want to collaborate? I'd love to hear from you!</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Information & Cards -->
+          <div class="contact-info-col">
+            <div class="info-card">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Email Me</span>
+                <a href="mailto:naina.negi.bca@example.com" class="info-value copyable-email" id="emailText" title="Click to copy">
+                  naina.negi.bca@example.com
+                </a>
+              </div>
+              <button class="copy-btn" id="copyEmailBtn" title="Copy Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Location</span>
+                <span class="info-value">India (Open to Remote Collaborations)</span>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Status</span>
+                <span class="info-value status-available">
+                  <span class="status-indicator"></span> Available for Projects &amp; Tech Hackathons
+                </span>
+              </div>
+            </div>
+
+            <!-- Social Links Card -->
+            <div class="socials-box">
+              <h4>Connect on Social Networks</h4>
+              <div class="social-links-grid">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Twitter / X">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  <span>X (Twitter)</span>
+                </a>
+
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Discord">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  </svg>
+                  <span>Discord</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-col">
+            <div class="form-glass-card">
+              <div class="form-card-header">
+                <h3>Send a Direct Message</h3>
+                <p>Fill out the form below and I'll respond promptly!</p>
+              </div>
+
+              <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="userName">Your Name <span class="req">*</span></label>
+                    <div class="input-wrap">
+                      <input type="text" id="userName" name="name" placeholder="e.g. Alex Sharma" required>
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="userEmail">Your Email <span class="req">*</span></label>
+                    <div class="input-wrap">
+                      <input type="email" id="userEmail" name="email" placeholder="alex@example.com" required>
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject / Purpose</label>
+                  <div class="input-wrap">
+                    <input type="text" id="subject" name="subject" placeholder="Project collaboration, Mentorship, or Query...">
+                    <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="userMessage">Your Message <span class="req">*</span></label>
+                  <div class="input-wrap textarea-wrap">
+                    <textarea id="userMessage" name="message" rows="4" placeholder="Hi Naina, I came across your portfolio and wanted to discuss..." required></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                  <span class="btn-text">Send Message</span>
+                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <div class="spinner hidden" id="btnSpinner"></div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#hero" class="nav-brand">
+          <span class="brand-bracket">&lt;</span>
+          <span class="brand-name">Naina<span class="brand-accent">.dev</span></span>
+          <span class="brand-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">BCA 1st Year • Coding Innovative Real-World Ideas</p>
+      </div>
+
+      <div class="footer-center">
+        <p class="copyright">
+          Designed &amp; Developed with <span class="heart-pulse">❤️</span> using 
+          <span class="tech-tag">HTML5</span> 
+          <span class="tech-tag">CSS3</span> 
+          <span class="tech-tag">JavaScript</span>
+        </p>
+        <p class="copyright-sub">© <span id="currentYear"></span> Naina Negi. All rights reserved.</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="#hero" class="back-to-top" id="backToTop" title="Back to Top">
+          <span>Back to Top</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
